@@ -17,6 +17,10 @@ describe Airport do
       plane = Plane.new
       expect(subject.land(plane)).to eq plane
     end
+    it 'allows a plane to land and change status to landed' do
+      plane = Plane.new
+      expect { subject.land(plane) }.to change { plane.flying? }.to false
+    end
   end
 
   describe '#take_off' do
@@ -30,7 +34,7 @@ describe Airport do
       plane = Plane.new
       subject.land(plane)
       expect { subject.take_off }.to change { plane.flying? }.to true
-      
+
     end
 
   end
