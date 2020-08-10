@@ -1,3 +1,5 @@
+require_relative 'plane'
+
 class Airport
 
   def land(plane)
@@ -5,6 +7,7 @@ class Airport
   end
 
   def take_off
+    @plane.set_as_flying
     @plane
   end
 

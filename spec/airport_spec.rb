@@ -26,7 +26,12 @@ describe Airport do
       expect(subject.take_off).to eq plane
     end
 
-    
+    it 'allows a plane to take off and change status to flying' do
+      plane = Plane.new
+      subject.land(plane)
+      expect { subject.take_off }.to change { plane.flying? }.to true
+      
+    end
 
   end
 end
