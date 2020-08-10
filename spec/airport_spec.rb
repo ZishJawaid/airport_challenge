@@ -42,10 +42,12 @@ describe Airport do
   end
 
   describe '#initialize' do
-    it 'sets the default capacity of the airport on initialization to 100' do
-      expect(subject.capacity).to eq (100)
+    it 'sets the default capacity of the airport on initialization to DEFAULT_CAPACITY' do
+      expect(subject.capacity).to eq Airport::DEFAULT_CAPACITY
     end
   end
+
+
 
 
 end
