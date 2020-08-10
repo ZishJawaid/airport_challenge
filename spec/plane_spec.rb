@@ -17,4 +17,10 @@ describe Plane do
     expect(plane).to be_flying
   end
 
+  it 'allows a plane to report it is landed' do
+    plane = Plane.new
+    plane.set_as_landed
+    expect(plane).not_to be_flying
+  end
+
 end
