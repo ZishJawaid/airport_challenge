@@ -21,7 +21,10 @@ describe Airport do
       plane = Plane.new
       expect { subject.land(plane) }.to change { plane.flying? }.to false
     end
-  end
+    it 'rasies an error if a plane tries to land when airport is full'
+      100.times { subject.land(Plane.new) }
+      expect { subject.land(Plane.new) }.to raise_error "Airport full, you can't land"
+    end
 
   describe '#take_off' do
     it 'allows a plane to take off' do
@@ -34,8 +37,14 @@ describe Airport do
       plane = Plane.new
       subject.land(plane)
       expect { subject.take_off }.to change { plane.flying? }.to true
-
     end
-
   end
+
+  describe '#initialize' do
+    it 'sets the default capacity of the airport on initialization to 100' do
+      expect(subject.capacity).to eq (100)
+    end
+  end
+
+
 end
