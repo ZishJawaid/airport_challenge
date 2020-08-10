@@ -12,7 +12,6 @@ class Airport
   end
 
   def land(plane)
-
     raise "Airport full, you can't land" if full?
     @plane << plane
     @plane.last.set_as_landed
